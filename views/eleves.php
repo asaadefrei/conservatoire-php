@@ -7,20 +7,16 @@
 Conservatoire </a>
         <ul class="nav nav-pills flex-column mt-5">
           <li class="nav-item">
-            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
+            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> Dashboard </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Prof </a>
+            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Professeurs </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i>Cours </a>
+            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i> Cours </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Eleves </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link text-white mb-3" ><i class="bi bi-music-note-list"></i>
- Instruments </a>
+            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Élèves </a>
           </li>
           <li class="nav-item">
             <a href="index.php?uc=admin&action=deconect" class="nav-link text-white mb-3" ><i class="bi bi-toggle-off"></i>
@@ -32,16 +28,16 @@ Conservatoire </a>
     <div class="col-md-8 col-lg-9">
 
 
-<h1 class="mt-4 mb-3"><i class="bi bi-people me-2"></i>Liste des eleves  </h1>
+<h1 class="mt-4 mb-3"><i class="bi bi-people me-2"></i>Liste des élèves </h1>
 
-<button class="btn btn-primary mb-3" onclick="window.location.href='https://www.example.com'">Open New Page</button>
+<a href="index.php?uc=prof&action=pageAjoutEleve"><button class="btn btn-primary mb-3">Créer élève</button></a>
 
-<form method="post" action="delete.php">
+<form method="post" action="index.php?uc=eleve&action=deleteEleve">
 
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">Prenom</th>
       <th scope="col">nom</th>
       <th scope="col">niveau</th>
@@ -56,14 +52,14 @@ Conservatoire </a>
   echo"
   
     <tr>
-      <th scope='row'>1</th>
+      <th scope='row'></th>
       <td>".$eleve -> getPrenom() ."</td>
       <td>".$eleve -> getNom()."</td>
       <td>".$eleve-> getNiveau()."</td>
-      <td><a href='#'>Modifier</a></td>
+      <td><a href='index.php?uc=prof&action=pageModifEleve&id=".$eleve-> getId()."' class='btn btn-light'>Modifier</a></td>
       <td>
         <div class='form-check'>
-          <input type='checkbox' class='form-check-input' name='delete[]' value='1'>
+          <input type='checkbox' class='form-check-input' name='delete[]' value='". $eleve -> getId()."'>
         </div>
       </td>
     </tr>
@@ -72,7 +68,7 @@ Conservatoire </a>
 ?>
   </tbody>
 </table>
-<button type="submit" class="btn btn-danger">Supprimer les profs sélectionnés</button>
+<button type="submit" class="btn btn-danger">Supprimer les élèves sélectionnés</button>
       </form>
 
 </div>

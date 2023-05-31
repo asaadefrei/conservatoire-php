@@ -7,7 +7,7 @@
 Conservatoire </a>
         <ul class="nav nav-pills flex-column mt-5">
           <li class="nav-item">
-            <a href="dashboard.php" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
+            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
           </li>
           <li class="nav-item">
             <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Prof </a>

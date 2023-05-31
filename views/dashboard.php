@@ -7,20 +7,16 @@
 Conservatoire </a>
         <ul class="nav nav-pills flex-column mt-5">
           <li class="nav-item">
-            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
+            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> Dashboard </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Prof </a>
+            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Professeurs </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i>Cours </a>
+            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i> Cours </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Eleves </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link text-white mb-3" ><i class="bi bi-music-note-list"></i>
- Instruments </a>
+            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Élèves  </a>
           </li>
           <li class="nav-item">
             <a href="index.php?uc=admin&action=deconect" class="nav-link text-white mb-3" ><i class="bi bi-toggle-off"></i>
@@ -39,7 +35,7 @@ Conservatoire </a>
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 class="fs-2"><?php echo $nombreProfesseur ?></h3>
-                                <p class="fs-5">Profs</p>
+                                <p class="fs-5">Professeurs</p>
                             </div>
                             <i class="bi bi-mortarboard-fill"></i>
                         </div>
@@ -59,7 +55,7 @@ Conservatoire </a>
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 class="fs-2"><?php echo $nombreEleves?></h3>
-                                <p class="fs-5">Eleves</p>
+                                <p class="fs-5">Élèves</p>
                             </div>
                             <i class="bi bi-people"></i>
                         </div>
@@ -76,12 +72,12 @@ Conservatoire </a>
                     </div>
                 </div>
 
-<h1 class="mt-4 mb-3">Liste des profs  </h1>
+<h1 class="mt-4 mb-3">Liste des professeurs</h1>
 
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">Prenom</th>
       <th scope="col">Nom</th>
       <th scope="col">Instrument</th>
@@ -94,7 +90,7 @@ Conservatoire </a>
   echo"
   
     <tr>
-      <th scope='row'>1</th>
+      <th scope='row'></th>
       <td>".$prof -> getPrenom() ."</td>
       <td>".$prof -> getNom()."</td>
       <td>".$prof-> getRef()."</td>
@@ -107,11 +103,11 @@ Conservatoire </a>
 
 
 
-<h1 class="mt-4 mb-3">Liste des Eleves </h1>
+<h1 class="mt-4 mb-3">Liste des Élèves </h1>
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">Prenom</th>
       <th scope="col">nom</th>
       <th scope="col">niveau</th>
@@ -124,7 +120,7 @@ Conservatoire </a>
   echo"
   
     <tr>
-      <th scope='row'>1</th>
+      <th scope='row'></th>
       <td>".$eleve -> getPrenom() ."</td>
       <td>".$eleve -> getNom()."</td>
       <td>".$eleve-> getNiveau()."</td>

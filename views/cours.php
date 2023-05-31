@@ -7,21 +7,18 @@
 Conservatoire </a>
         <ul class="nav nav-pills flex-column mt-5">
           <li class="nav-item">
-            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
+            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> Dashboard </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Prof </a>
+            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Professeurs </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i>Cours </a>
+            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i> Cours </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Eleves </a>
+            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Élèves </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link text-white mb-3" ><i class="bi bi-music-note-list"></i>
- Instruments </a>
-          </li>
+        
           <li class="nav-item">
             <a href="index.php?uc=admin&action=deconect" class="nav-link text-white mb-3" ><i class="bi bi-toggle-off"></i>
  Déconection </a>
@@ -33,14 +30,15 @@ Conservatoire </a>
 
 
     <h1 class="mt-3 mb-4"><i class="bi bi-book"></i> Liste des cours</h1>
-<button class="btn btn-primary mb-4" onclick="window.location.href='https://www.example.com'">Creer un nouveau cours</button>
+
+<a href="index.php?uc=cours&action=pageAjoutCours"><button class="btn btn-primary mb-3">Créer cours</button></a>
 
 <div class='row'>
   <?php
   foreach($lesCours as $cours) {
     $nomProf = Prof::getNomProf($cours->getIdProf());
     $instrument = Prof::getInstrumentProf($cours->getIdProf());
-    $nombreEleve = Inscription::nombreInscriptionParSeance($cours->getIdProf());
+    $nombreEleve = Inscription::nombreInscriptionParSeance($cours->getNumSeance());
         echo "
     <div class='col-md-4 col-sm-6'>
       <div class='card mb-3 '>
@@ -56,8 +54,10 @@ Conservatoire </a>
           <li class='list-group-item'>Nombre d'eleve : ".$nombreEleve ." / ". $cours ->getCapacite()  ."</li>
         </ul>
         <div class='card-body'>
-          <a href='#' class='btn btn-info'>Voir detail/modifier</a>
-          <a href='#' class='btn btn-danger'>supprimer</a>
+          <a href='index.php?uc=cours&action=pageModifCours&id=".$cours-> getNumSeance() ."' class='btn btn-info'>Voir detail/modifier</a>
+          <a href='index.php?uc=cours&action=pageAjoutEleveCours&id=".$cours-> getNumSeance() ."&idProf=".$cours -> getIdProf() ."' class='btn btn-warning'>gérer élèves</a>
+          <a href='index.php?uc=cours&action=deleteCours&id=".$cours-> getNumSeance() ."' class='btn btn-danger'>supprimer </a>
+
 
         </div>
         

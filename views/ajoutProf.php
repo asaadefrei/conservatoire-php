@@ -7,20 +7,16 @@
 Conservatoire </a>
         <ul class="nav nav-pills flex-column mt-5">
           <li class="nav-item">
-            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
+            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> Dashboard </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Prof </a>
+            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Professeurs </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i>Cours </a>
+            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i> Cours </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Eleves </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link text-white mb-3" ><i class="bi bi-music-note-list"></i>
- Instruments </a>
+            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Élèves  </a>
           </li>
           <li class="nav-item">
             <a href="index.php?uc=admin&action=deconect" class="nav-link text-white mb-3" ><i class="bi bi-toggle-off"></i>
@@ -40,24 +36,32 @@ Conservatoire </a>
                     <form method="post" action="index.php?uc=prof&action=ajtProf">
                         <div class="row">
                             <div class="col-lg-6 mb-3">
-                                <label for="username" class="form-label">Nom</label>
-                                <input type="text" class="form-control form-control-lg" name="nom">
+                                <label for="username" class="form-label">Nom </label>
+                                <input type="text" class="form-control form-control-lg" name="nom" id="nomInput">
+                                <div id="nomError" class="text-danger"></div>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="password" class="form-label">Prenom</label>
-                                <input type="text" class="form-control form-control-lg" name="prenom">
+                                <input type="text" class="form-control form-control-lg" name="prenom" id="prenomInput">
+                                <div id="prenomError" class="text-danger"></div>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="email" class="form-label">Tel</label>
-                                <input type="text" class="form-control form-control-lg" name="tel">
+                                <input type="text" class="form-control form-control-lg" name="tel" id="telInput">
+                                <div id="telError" class="text-danger"></div>
+
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="phone" class="form-label">Email</label>
-                                <input type="text" class="form-control form-control-lg" name="email">
+                                <input type="text" class="form-control form-control-lg" name="email" id="emailInput">
+                                <div id="emailError" class="text-danger"></div>
+
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="phone" class="form-label">Adresse</label>
-                                <input type="text" class="form-control form-control-lg" name="adresse">
+                                <input type="text" class="form-control form-control-lg" name="adresse" id="adresseInput">
+                                <div id="adresseError" class="text-danger"></div>
+
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="country" class="form-label">Instrument</label>
@@ -72,11 +76,12 @@ Conservatoire </a>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="city" class="form-label">Salaire</label>
-                                <input type="text" class="form-control form-control-lg" name="salaire" value="1">
+                                <input type="text" class="form-control form-control-lg" name="salaire" id="salaireInput">
+                                <div id="salaireError" class="text-danger"></div>
                             </div>
                            
                             <div class="col-lg-6 mb-3 text-end w-100">
-                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                                <button type="submit" class="btn btn-primary w-100">Ajouter</button>
                             </div>
                         </div>
                     </form>
@@ -86,6 +91,12 @@ Conservatoire </a>
     </div>
 </div>
 
-<p> </p>
+
 
 </div>
+
+
+<script>
+
+    <?php include("script.js"); ?>
+</script>

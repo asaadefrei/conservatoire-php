@@ -7,21 +7,18 @@
 Conservatoire </a>
         <ul class="nav nav-pills flex-column mt-5">
           <li class="nav-item">
-            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> dashboard </a>
+            <a href="index.php?uc=accueil&action=dashboard" class="nav-link text-white mb-3" > <i class="bi bi-clipboard"></i> Dashboard </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Prof </a>
+            <a href="index.php?uc=prof&action=listProf" class="nav-link text-white mb-3" ><i class="bi bi-mortarboard-fill"></i> Professeurs </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i>Cours </a>
+            <a href="index.php?uc=prof&action=listCours" class="nav-link text-white mb-3" > <i class="bi bi-book"></i> Cours </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Eleves </a>
+            <a href="index.php?uc=eleve&action=listEleve" class="nav-link text-white mb-3" ><i class="bi bi-people"></i> Élèves  </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link text-white mb-3" ><i class="bi bi-music-note-list"></i>
- Instruments </a>
-          </li>
+       
           <li class="nav-item">
             <a href="index.php?uc=admin&action=deconect" class="nav-link text-white mb-3" ><i class="bi bi-toggle-off"></i>
  Déconection </a>
@@ -32,7 +29,7 @@ Conservatoire </a>
     <div class="col-md-8 col-lg-9">
 
     <div class="container mt-5">
-    <h1 class="text-center mb-5">Detail Professeur</h1>
+    <h1 class="text-center mb-5">Détails Professeur</h1>
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
@@ -70,8 +67,10 @@ Conservatoire </a>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="city" class="form-label">Salaire</label>
-                                <input type="text" class="form-control form-control-lg" name="salaire" value="<?php echo $prof->getSalaire(); ?>">
+                                <input type="text" class="form-control form-control-lg" name="salaire" id="salaireInput" value="<?php echo $prof -> getSalaire() ;?>">
+                                <div id="salaireError" class="text-danger"></div>
                             </div>
+                           
                            
                             <div class="col-lg-6 mb-3 text-end w-100">
                                 <button type="submit" class="btn btn-primary w-100">Modifier</button>
@@ -84,6 +83,24 @@ Conservatoire </a>
     </div>
 </div>
 
-<p> </p>
 
 </div>
+
+<script>
+    // Validation du formulaire côté client
+    document.querySelector('form').addEventListener('submit', function(event) {
+        var salaireInput = document.getElementById('salaireInput');
+        var salaireError = document.getElementById('salaireError');
+
+        var salaire = parseInt(salaireInput.value.trim());
+
+        if (isNaN(salaire) || salaire.toString() !== salaireInput.value.trim()) {
+            salaireError.textContent = 'Veuillez saisir un salaire entier.';
+            salaireError.style.display = 'block';
+            event.preventDefault(); // Empêche l'envoi du formulaire
+        } else {
+            salaireError.textContent = ''; // Efface le message d'erreur
+            salaireError.style.display = 'none';
+        }
+            });
+</script>

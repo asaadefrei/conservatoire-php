@@ -10,6 +10,10 @@ include("models/inscription.class.php");
 include("models/eleve.class.php");
 include("models/seance.class.php");
 include("models/instrument.class.php");
+include("models/heure.class.php");
+include("models/jour.class.php");
+include("models/niveau.class.php");
+
 
 
 include("models/prof.class.php");

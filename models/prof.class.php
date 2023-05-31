@@ -120,6 +120,29 @@ class Prof
 		return $lesResultats->nom;
 
     }
+	public static function getPrenomProf($id){
+        $req = MonPdo::getInstance()->prepare("SELECT prenom FROM `personne` where id = $id");
+        $req -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+        $req->execute();
+        $lesResultats = $req->fetch();
+		return $lesResultats->nom;
+
+    }
+	public static function getIdProf($nomPrenom){
+		$nomPrenomArray = explode(' ', $nomPrenom);
+		$nom = $nomPrenomArray[0];
+		$prenom = $nomPrenomArray[1];
+	
+		$req = MonPdo::getInstance()->prepare("SELECT id FROM `personne` WHERE nom = :nom AND prenom = :prenom");
+		$req -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+
+		$req->bindParam(':nom', $nom);
+		$req->bindParam(':prenom', $prenom);
+		$req->execute();
+		$lesResultats = $req->fetch();
+		return $lesResultats->id;
+	}
+	
 
 	public static function getInstrumentProf($id){
         $req = MonPdo::getInstance()->prepare("SELECT ref FROM `prof` where idprof = $id");
@@ -132,7 +155,7 @@ class Prof
 
 	public static function ajouterProf(prof $profs){
 
-		$reqPersonne=MonPdo::getInstance()->prepare("INSERT INTO `personne`(`NOM`, `PRENOM`, `TEL`, `MAIL`, `ADRESSE`) VALUES (:nom, :prenom, :tel, :mail, :adresse)");
+		$reqPersonne=MonPdo::getInstance()->prepare("INSERT INTO `personne`(`NOM`, `PRENOM`, `TEL`, `MAIL`, `ADRESSE`) VALUES (:nom, :prenom, :tel, :mail, :adresse);");
 		$nom = $profs->getNom();
 		$reqPersonne->bindParam(':nom', $nom);
 		$prenom = $profs->getPrenom();
